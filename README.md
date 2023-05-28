@@ -1,18 +1,49 @@
 # EX-8 APPLICATION USING TCP SOCKETS - CREATING ECHO CLIENT-SERVER
+# DATE :27-04-2023
 
-DATE :
+# AIM :
+To write a python program for creating Echo Client and Echo Server using TCP Sockets Links.
 
-AIM :
+# ALGORITHM :
 
+1.Start the program.
 
-ALGORITHM :
+2.Get the frame size from the user
 
+3.To create the frame based on the user request.
 
-PROGRAM :
+4.To send frames to server from the client side.
 
+5.If your frames reach the server, it will send ACK signal to client otherwise it will send NACKsignal to client.
 
-OUTPUT :
+6.Stop the program
 
+# PROGRAM :
+# CLIENT :
+```
+# Developed By : RAGHUL.S
+# Register Number : 212222040128
+import socket
+s=socket.socket()
+s.connect(('localhost',8000))
+while True:
+    msg=input("Client > ")
+    s.send(msg.encode())
+    print("Server > ",s.recv(1024).decode())
+```
+# SERVER :
+```
+import socket
+s=socket.socket()
+s.bind(('localhost',8000))
+s.listen(5)
+c,addr=s.accept()
+while True:
+    ClientMessage=c.recv(1024).decode()
+    c.send(ClientMessage.encode())
+```
+# OUTPUT :
+![image](https://github.com/Raghulshanmugam2004/EX-8/assets/119561118/a7271751-b67a-493b-9870-b0a3d535a65f)
+# RESULT :
+Thus, the python program for creating Echo Client and Echo Server using TCP Sockets Links was successfully created and executed.
 
-
-RESULT :
